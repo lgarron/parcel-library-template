@@ -2,19 +2,19 @@
 
 This repository uses certain conventions that allow maintaining a TypeScript library using the existing features of Parcel 2.
 
-The main convention is that the "intended" entry point of the published library is `./src/index.ts`. However, all the entry points for Parcel 2 are in `src/targets`, as follows:
+The main convention is that the "intended" entry point of the published library is `./src/index.ts`. However, the entry points for any targets with additional code are in `src/targets`, as follows:
 
-| Command              | Entry Files                  | Modifications                    | Parcel Target Name | Build File                 |
-| -------------------- | ---------------------------- | -------------------------------- | ------------------ | -------------------------- |
-| `make build-main`    | `src/targets/main.ts` ¹      | None                             | `main` ²           | `dist/template.main.js`    |
-| `make build-module`  | `src/targets/module.ts` ¹    | None                             | `module`           | `dist/template.module.js`  |
-| `make build-types`   | `src/targets/types.ts` ¹     | None                             | `types`            | `dist/template.d.ts`       |
-| `make build-browser` | `src/targets/browser.ts`     | Export libraries on `globalThis` | `browser`          | `dist/template.browser.ts` |
-| `make build`         |                              |                                  |                    | Builds all targets above   |
-| `make dev`           | `src/targets/dev/index.html` | Testing code                     | N/A                | (opens browser))           |
+| Command              | Entry File                   | Build File                 |
+| -------------------- | ---------------------------- | -------------------------- |
+| `make build-main` ¹  | `src/index.ts`               | `dist/template.main.js`    |
+| `make build-module`  | `src/index.ts`               | `dist/template.module.js`  |
+| `make build-types`   | `src/index.ts`               | `dist/template.d.ts`       |
+| `make build-browser` | `src/targets/browser.ts` ²   | `dist/template.browser.ts` |
+| `make build`         | (Multiple)                   | Builds all targets above   |
+| `make dev`           | `src/targets/dev/index.html` | (opens browser)            |
 
-¹ Except in special situations, these files should just re-export `*` from `src/index.ts`.
-² `main` should be called `node`, but the `package.json` field is called `main` and we use `main` for consistency.
+¹ `main` should be called `node`, but the `package.json` field is called `main`. So we use `main` for consistency.
+² This should simply import the library code and export it as an object on [`globalThis`](https://caniuse.com/#feat=mdn-javascript_builtins_globalthis).
 
 ## Usage
 
