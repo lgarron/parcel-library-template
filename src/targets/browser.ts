@@ -1,3 +1,2 @@
-import * as Template from "../index";
-
+import * as Template from "..";
 (globalThis as any).Template = Template;

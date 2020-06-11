@@ -1,4 +1,4 @@
-import {SwappableInverter} from "../../";
+import {SwappableInverter} from "../..";
 
 var inverter = new SwappableInverter("R U R'");
 function displayAlg() {
