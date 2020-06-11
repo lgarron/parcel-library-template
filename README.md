@@ -24,3 +24,46 @@ The main convention is that the "intended" entry point of the published library 
    - Copy and rename the the target files in `package.json` (fields: `main`, `module`, `types`, `browser`).
    - `npm install --save-dev parcel@nightly typescript`
 3. Rename the exported library name in [`./src/targets/browser.ts`](./src/targets/browser.ts).
+
+# Other config files.
+
+## `.babelrc`
+
+Depending on what features you use, you may need to create a `.babelrc` file:
+
+    {
+      "presets": [
+        "@babel/preset-typescript"
+      ],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-private-methods",
+        "@babel/plugin-proposal-optional-chaining",
+        "@babel/plugin-proposal-nullish-coalescing-operator"
+      ]
+    }
+
+You'll also have to run `npm install --save-dev` for each of the packages in those lists.
+
+## `.parcelrc`
+
+You'll need a Parcel 2 config file (`.parcelrc`) to e.g. use transformers:
+
+    {
+      "extends": "@parcel/config-default",
+      "transformers": {
+        "*.pegjs": ["parcel-transformer-pegjs"]
+      }
+    }
+
+## `tsconfig.json`
+
+Depending on what features you use, you may need to create a `tsconfig.json` file, e.g.:
+
+    {
+      "compilerOptions": {
+        "target": "es2015"
+      }
+    }
+
+You may have to be careful with options that affect input/output files/folders.
