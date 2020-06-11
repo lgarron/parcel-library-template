@@ -20,7 +20,7 @@ The main convention is that the "intended" entry point of the published library 
 
 1. Copy `src/targets` (and update `dev.ts` to taste).
 2. `package.json`
-   - Copy the `scripts` and `targets` fields .
+   - Review and copy the `scripts` and `targets` fields.
    - Copy and rename the the target files in `package.json` (fields: `main`, `module`, `types`, `browser`).
    - `npm install --save-dev parcel@nightly typescript`
 3. Rename the exported library name in [`./src/targets/browser.ts`](./src/targets/browser.ts).
