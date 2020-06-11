@@ -8,12 +8,13 @@
   "browser": "dist/template.browser.js",
   "scripts": {
     "build": "npm run build-types && npm run build-main && npm run build-module && npm run build-browser",
-    "build-types": "npx parcel build --target types src/index.ts",
-    "build-main": "npx parcel build --target main src/index.ts",
-    "build-module": "npx parcel build --target module src/index.ts",
+    "build-types": "npx parcel build --target types src/targets/types.ts",
+    "build-main": "npx parcel build --target main src/targets/main.ts",
+    "build-module": "npx parcel build --target module src/targets/module.ts",
     "build-browser": "npx parcel build --target browser src/targets/browser.ts",
     "dev": "npx parcel serve src/targets/dev/index.html",
     "clean": "rm -rf ./.parcel-cache ./dist",
+    
     "prepack": "npm run clean && npm run build"
   },
   "author": "",

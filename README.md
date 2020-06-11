@@ -2,19 +2,20 @@
 
 This repository uses certain conventions that allow maintaining a TypeScript library using the existing features of Parcel 2.
 
-The main convention is that the "intended" entry point of the published library is `./src/index.ts`. However, the entry points for any targets with additional code are in `src/targets`, as follows:
+The main convention is that the "intended" entry point of the published library is `./src/index.ts`. However, the entry points for any Parcel 2 targets are all in `src/targets`, as follows:
 
 | Command              | Entry File                   | Build File                 |
 | -------------------- | ---------------------------- | -------------------------- |
-| `make build-main` ¹  | `src/index.ts`               | `dist/template.main.js`    |
-| `make build-module`  | `src/index.ts`               | `dist/template.module.js`  |
-| `make build-types`   | `src/index.ts`               | `dist/template.d.ts`       |
-| `make build-browser` | `src/targets/browser.ts` ²   | `dist/template.browser.ts` |
+| `make build-main` ¹  | `src/targets/main.ts` ²      | `dist/template.main.js`    |
+| `make build-module`  | `src/targets/module.ts` ²    | `dist/template.module.js`  |
+| `make build-types`   | `src/targets/types.ts` ²     | `dist/template.d.ts`       |
+| `make build-browser` | `src/targets/browser.ts` ³   | `dist/template.browser.ts` |
 | `make build`         | (Multiple)                   | Builds all targets above   |
 | `make dev`           | `src/targets/dev/index.html` | (opens browser)            |
 
 ¹ `main` should be called `node`, but the `package.json` field is called `main`. So we use `main` for consistency.
-² This should simply import the library code and export it as an object on [`globalThis`](https://caniuse.com/#feat=mdn-javascript_builtins_globalthis).
+² Ideally, we would use `./src/index.ts` directly. But it seems that Parcel 2 caches the target file for a given entry file, so we use separate entry files that re-export the `src/index.ts` exports.
+³ This should simply import the library code and export it as an object on [`globalThis`](https://caniuse.com/#feat=mdn-javascript_builtins_globalthis).
 
 ## Usage
 
