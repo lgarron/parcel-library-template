@@ -26,11 +26,17 @@
     "typescript": "^3.9.5"
   },
   "targets": {
-    "module": {},
+    "types": {
+    },
     "main": {
-      "context": "node"
+      "context": "node",
+			"outputFormat": "commonjs"
+    },
+    "module": {
+      "outputFormat": "esmodule"
     },
     "browser": {
+			"outputFormat": "esmodule",
       "includeNodeModules": true
     }
   }
