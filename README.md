@@ -19,7 +19,7 @@ The main convention is that the "intended" entry point of the published library 
 
 ## Usage
 
-1. Copy `src/targets` (and update `dev.ts` to taste).
+1. Copy `src/targets` (and update `src/targets/dev/dev.ts` to taste).
 2. `package.json`
    - Review and copy the `scripts` and `targets` fields.
    - Copy and rename the the target files in `package.json` (fields: `main`, `module`, `types`, `browser`).
