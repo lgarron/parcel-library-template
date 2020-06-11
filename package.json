@@ -1,0 +1,28 @@
+{
+  "name": "parcel-library-template",
+  "version": "0.0.1",
+  "description": "",
+  "module": "dist/template.module.js",
+  "types": "dist/template.d.ts",
+  "browser": "dist/template.browser.js",
+  "scripts": {
+    "build": "npx parcel build src/targets/module.ts && npx parcel build --target browser src/targets/browser.ts",
+    "dev": "npx parcel serve src/targets/dev/index.html",
+    "clean": "rm -rf ./.parcel-cache ./dist"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cubing": "^0.10.5"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-nightly.288",
+    "typescript": "^3.9.5"
+  },
+  "targets": {
+    "module": {},
+    "browser": {
+      "includeNodeModules": true
+    }
+  }
+}
