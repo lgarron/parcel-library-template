@@ -2,7 +2,7 @@
 # https://github.com/lgarron/Makefile-scripts
 
 # Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build module types browser dev clean
+NPM_COMMANDS = build node module types browser dev clean
 
 .PHONY: $(NPM_COMMANDS)
 $(NPM_COMMANDS):
