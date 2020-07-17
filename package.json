@@ -34,7 +34,7 @@
     "module": {
       "outputFormat": "esmodule"
     },
-    "browser": {
+    "browser-global": {
       "outputFormat": "esmodule",
       "includeNodeModules": true
     }
