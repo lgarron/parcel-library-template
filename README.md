@@ -13,8 +13,8 @@ The main convention is that the "intended" entry point of the published library 
 | `make build`                | (Multiple)                        | Builds all targets above          |
 | `make dev`                  | `src/targets/dev/index.html`      | (opens browser)                   |
 
-¹ `main` should be called `node`, but the `package.json` field is called `main`. So we use `main` for consistency.
-² Ideally, we would use `./src/index.ts` directly. But it seems that Parcel 2 caches the target file for a given entry file, so we use separate entry files that re-export the `src/index.ts` exports.
+¹ `main` should be called `node`, but the `package.json` field is called `main`. So we use `main` for consistency.  
+² Ideally, we would use `./src/index.ts` directly. But it seems that Parcel 2 caches the target file for a given entry file, so we use separate entry files that re-export the `src/index.ts` exports.  
 ³ This should simply import the library code and export it as an object on [`globalThis`](https://caniuse.com/#feat=mdn-javascript_builtins_globalthis).
 
 ## Usage
