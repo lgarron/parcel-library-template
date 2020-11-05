@@ -28,7 +28,6 @@
   "targets": {
     "types": {},
     "main": {
-      "context": "node",
       "outputFormat": "commonjs"
     },
     "module": {
