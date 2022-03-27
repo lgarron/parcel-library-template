@@ -1,3 +1,7 @@
+Don't use this. Use [esbuild](https://github.com/evanw/esbuild).
+
+--------
+
 # Parcel 2 Library Template
 
 This repository uses certain conventions that allow maintaining a TypeScript library using the existing features of Parcel 2.
